@@ -1,0 +1,8 @@
+enable_testing()
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+set(LIBS ${LIBS} tictactoe_lib ${Boost_LIBRARIES})
+include_directories(. ../../src)
+add_executable(unit_main_test test_unit_main.cpp)
+target_link_libraries(unit_main_test ${LIBS})
+add_test(unit_main_test ${CMAKE_CURRENT_BINARY_DIR}/unit_main_test)
+set_property(TARGET unit_main_test PROPERTY CXX_STANDARD 11)
